@@ -26,12 +26,11 @@ namespace wildlife_tracker
             services.AddMvc();
 
             services.AddEntityFramework()
+                .AddSqlServer()
                 .AddDbContext<WildlifeTrackerContext>(options =>
                     options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        
         public void Configure(IApplicationBuilder app)
         {
             app.UseIISPlatformHandler();
@@ -40,12 +39,12 @@ namespace wildlife_tracker
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync("Hello Animals!");
             });
         }
 
