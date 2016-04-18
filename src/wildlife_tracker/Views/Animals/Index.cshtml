@@ -8,10 +8,11 @@
     <h2>Wildlife Tracker</h2>
     <h4>@Html.DisplayNameFor(model => model.Name)</h4>
     <ul>
-        @foreach (var listItem in Model)
-        {
-            <li>@Html.DisplayFor(modelItem => listItem.Name)</li>
+                @foreach (var listItem in Model)
+                {
+                    <li>@Html.DisplayFor(modelItem => listItem.Name) @Html.ActionLink("Details", "Details", new { id = listItem.AnimalId }) | @Html.ActionLink("Edit", "Edit", new { id = listItem.AnimalId }) | @Html.ActionLink("Delete", "Delete", new { id = listItem.AnimalId })</li>
         }
     </ul>
+    <p>@Html.ActionLink("Add new animal", "Create")</p>
 </body>
 </html>
