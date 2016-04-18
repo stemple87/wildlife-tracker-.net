@@ -1,0 +1,17 @@
+﻿@model IEnumerable<wildlife_tracker.Models.Animal>
+
+<html>
+<head>
+    <title>Wildlife Tracker</title>
+</head>
+<body>
+    <h2>Wildlife Tracker</h2>
+    <h4>@Html.DisplayNameFor(model => model.Name)</h4>
+    <ul>
+        @foreach (var listItem in Model)
+        {
+            <li>@Html.DisplayFor(modelItem => listItem.Name)</li>
+        }
+    </ul>
+</body>
+</html>
